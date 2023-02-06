@@ -11,6 +11,7 @@ export interface ButtonProps {
 }
 
 export interface InputProps {
+  label: JSX.Element | string
   type: string;
   name: string;
   onChange?: ChangeEventHandler<
