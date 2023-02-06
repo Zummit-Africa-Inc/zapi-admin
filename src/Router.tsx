@@ -7,14 +7,14 @@ const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<Login />} />
-        {/* <Route element={<Auth />}> */}
+        <Route element={<Auth />}>
           <Route path="/dashboard" element={<Home />} />
           <Route path="/api" element={<Apis />} />
           <Route path="/api/:id" element={<Api />} />
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/user" element={<Users />} />
           <Route path="/user/:id" element={<User />} />
-      {/* </Route> */}
+      </Route>
     </Routes>
   );
 }
