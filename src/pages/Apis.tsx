@@ -1,20 +1,17 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React from "react"
 
 import { Navbar } from "../components";
 import { Dashboard } from "../layouts";
 
-const Api = () => {
-  const {id} = useParams();
-
+const Apis = () => {
   return (
     <div className="w-full flex flex-col">
       <Navbar />
       <Dashboard>
-        <p>api: {id}</p>
+        <p>children</p>
       </Dashboard>
     </div>
   )
-};
+}
 
-export default Api;
+export default Apis

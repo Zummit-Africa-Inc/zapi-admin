@@ -1,0 +1,37 @@
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+.spinner-size__medium {
+  width: 40px;
+  height: 40px;
+}
+
+.spinner-size__large {
+  width: 60px;
+  height: 60px;
+}
+
+.spinner-thickness__medium {
+  border-width: 4px;
+}
+
+.spinner-thickness__large {
+  border-width: 6px;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
