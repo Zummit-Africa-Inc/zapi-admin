@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;800;900;&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #081f4a;
+  --primary-100: #cfdefa;
+  --primary-200: #96c6ff;
+  --secondary: #ffea00;
+  --grey: #e9ebed;
+  --grey-100: #d3d7da;
+  --grey-200: #a8aeb5;
+  --grey-dark: #1e1e1e;
+  --white: #f5f5f5;
+  --black: #121212;
+  --body-font: "Lato", sans-serif;
+  --code-font: "Lucida Console", sans-serif;
+  --summary-font: "Spline Sans", sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--body-font);
+  transition: all 500ms ease-in-out;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: "#fff";
+  font-family: var(--body-font);
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+input:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 40px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}

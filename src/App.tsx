@@ -1,14 +1,14 @@
-import { Routes, Route } from "react-router-dom";
-import { adminRoutes } from "./Routes";
+import React, { Suspense } from "react";
 
-function App() {
+import Router from "./Router";
+import { Loader } from "./components";
+
+const App = () => {
   return (
     <div className="App">
-      <Routes>
-        {adminRoutes.map((route, i) => (
-          <Route key={i} path={route.path} element={route.element} />
-        ))}
-      </Routes>
+      <Suspense fallback={<Loader />}>
+        <Router />
+      </Suspense>
     </div>
   );
 }
