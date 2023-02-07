@@ -19,7 +19,7 @@ const CustomButton = ({
         <button
           type={type}
           onClick={onClick}
-          className="min-w-[143px] py-3 px-6 bg-primary text-white font-medium text-xl"
+          className="min-w-[143px] bg-primary text-white font-medium text-xl flex w-full appearance-none items-center justify-center gap-1 rounded py-3 px-4 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
           style={style}
         >
           {label}
@@ -32,7 +32,7 @@ const CustomButton = ({
     <button
       type={type}
       onClick={onClick}
-      className="min-w-[143px] py-3 px-6 bg-primary text-white font-medium text-xl"
+      className="min-w-[143px] bg-primary text-white font-medium text-xl flex w-full appearance-none items-center justify-center gap-1 rounded py-3 px-4 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
       style={style}
       >
       {label}
