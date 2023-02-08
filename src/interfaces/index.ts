@@ -19,6 +19,7 @@ export interface InputProps {
   >;
   onKeyDown?: KeyboardEventHandler<HTMLInputElement | HTMLTextAreaElement>;
   value?: string;
+  className?: string
   defaultValue?: string;
   placeholder?: string;
   required?: boolean;
