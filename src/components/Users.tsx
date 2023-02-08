@@ -7,6 +7,7 @@ import {
   TableRow,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
+
 import { useHttpRequest } from "../hooks";
 
 const Users = () => {
@@ -38,19 +39,17 @@ const Users = () => {
     response();
   }, []);
 
-  console.log(data);
-
   return (
-    <div className="mt-[2rem] px-[3rem]">
-      <div className="">Total number of registered Users:{data?.userCount}</div>
-      <div className="w-full py-[2rem] text-center">
+    <div className="w-full">
+      <div className="font-bold text-xl text-primary">Total number of registered Users:{data?.userCount}</div>
+      <div className="w-full text-center">
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Number</TableCell>
-              <TableCell>Full Name</TableCell>
-              <TableCell>Email</TableCell>
-              <TableCell>Date Registered</TableCell>
+              <TableCell className="font-bold text-black">Number</TableCell>
+              <TableCell className="font-bold text-black">Name</TableCell>
+              <TableCell className="font-bold text-black">Email</TableCell>
+              <TableCell className="font-bold text-black">Date Registered</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -59,7 +58,7 @@ const Users = () => {
               ?.map((user: any, i: number) => (
                 <TableRow key={i}>
                   <TableCell>{i + 1}</TableCell>
-                  <TableCell>{user.fullName}</TableCell>
+                  <TableCell className="capitalize">{user.fullName}</TableCell>
                   <TableCell>{user.email}</TableCell>
                   <TableCell>
                     {new Date(user.createdOn).toLocaleDateString()}
@@ -69,9 +68,10 @@ const Users = () => {
           </TableBody>
         </Table>
         <TablePagination
+          className="font-extrabold text-lg"
           rowsPerPageOptions={[5, 10, 20]}
           component="div"
-          count={data.users?.length}
+          count={data?.users?.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}

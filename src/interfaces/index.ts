@@ -1,4 +1,5 @@
 import { ChangeEventHandler, CSSProperties, KeyboardEventHandler } from "react";
+import { AnalyticsType } from "../types";
 
 export interface ButtonProps {
   label: string | JSX.Element;
@@ -25,4 +26,12 @@ export interface InputProps {
   required?: boolean;
   icon?: JSX.Element;
   style?: CSSProperties;
+}
+
+export interface ApiResponse {
+  apiCount: number
+  apis: Array<AnalyticsType>
+  message: string
+  status: string
+  success: boolean
 }

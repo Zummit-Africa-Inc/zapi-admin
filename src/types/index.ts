@@ -54,4 +54,26 @@ export type EndpointType = {
     route: string;
 };
 
-export type FeedbackType = {}
+export type FeedbackType = {
+    id: string
+    createdOn?: Date | string
+    createdBy?: string
+    updatedOn?: Date | string
+    updatedBy?: string
+    deletedOn?: Date | string
+    deletedBy?: string
+    name: string
+    email: string
+    title: string
+    body: string
+    category: string
+};
+
+export interface AnalyticsType {
+    apiId: string
+    subscriptionCount: number
+    successfulCalls: number
+    totalCalls: number
+    totalErrors: number
+    totalLatency: number
+};

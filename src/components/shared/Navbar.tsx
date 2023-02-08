@@ -24,7 +24,7 @@ const Navbar = () => {
         <p className="font-extrabold text-2xl text-white">ZAPI Admin</p>
       </Link>
       <div className="flex items-center gap-2">
-        <div className="flex items-center gap-4 py-2 px-2 bg-secondary rounded cursor-pointer">
+        {/* <div className="flex items-center gap-4 py-2 px-2 bg-secondary rounded cursor-pointer">
           <div className="w-7 h-7 rounded-full bg-white">
             {user?.picture ? (
               <img src={user?.picture} alt="" className="w-full h-full rounded-full object-contain" />
@@ -37,7 +37,7 @@ const Navbar = () => {
           <p className="font-bold text-xl text-primary leading-5">
             {splitName(user?.fullName)}
           </p>
-        </div>
+        </div> */}
       </div>
     </div>
   )

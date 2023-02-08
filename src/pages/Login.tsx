@@ -22,7 +22,7 @@ const Login = () => {
       'Content-Type': "application/json",
     };
     const payload = {email, password};
-    const data = await sendRequest(`/`, "post", "VITE_IDENTITY_URL", JSON.stringify(payload), headers);
+    const data = await sendRequest(`/auth/signin`, "post", "VITE_IDENTITY_URL", JSON.stringify(payload), headers);
     if(!data || data === undefined) return;
     console.log(data);
   };
