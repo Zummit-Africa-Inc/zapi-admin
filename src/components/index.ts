@@ -1,4 +1,3 @@
-
 // shared
 export { default as Button } from "./shared/Button";
 export { default as InputField } from "./shared/InputField";
@@ -9,3 +8,4 @@ export { default as Spinner } from "./shared/Spinner";
 
 //
 export { default as Auth } from "./Auth";
+export { default as AllUsers } from "./Users";

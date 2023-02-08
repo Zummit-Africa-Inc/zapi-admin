@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-import { Navbar } from "../components";
+import { Navbar, AllUsers } from "../components";
 import { Dashboard } from "../layouts";
 
 const Users = () => {
@@ -8,10 +8,10 @@ const Users = () => {
     <div className="w-full flex flex-col">
       <Navbar />
       <Dashboard>
-        <p>children</p>
+        <AllUsers />
       </Dashboard>
     </div>
-  )
-}
+  );
+};
 
-export default Users
+export default Users;
