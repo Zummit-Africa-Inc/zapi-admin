@@ -1,3 +1,3 @@
 window.global ||= window;
 
-export {}
+export {};
