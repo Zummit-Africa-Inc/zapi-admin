@@ -21,7 +21,7 @@ const Navbar = () => {
     <div className="w-full flex items-center justify-between py-6 px-8 bg-primary">
       <Link to="/" className="flex items-center gap-2">
         <img src={zapi} alt="" className="w-[30px]" />
-        <p className="font-bold text-2xl text-white">ZAPI Admin</p>
+        <p className="font-extrabold text-2xl text-white">ZAPI Admin</p>
       </Link>
       <div className="flex items-center gap-2">
         <div className="flex items-center gap-4 py-2 px-2 bg-secondary rounded cursor-pointer">
