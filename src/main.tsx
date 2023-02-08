@@ -9,6 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 import { store } from "./store/store";
 import App from "./App";
 import "./index.css";
+import { StyledEngineProvider } from "@mui/material";
 
 const vite_identity_url = import.meta.env.VITE_IDENTITY_URL;
 const vite_core_url = import.meta.env.VITE_CORE_URL;
@@ -38,7 +39,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <App />
+        <StyledEngineProvider injectFirst>
+          <App />
+        </StyledEngineProvider>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>
