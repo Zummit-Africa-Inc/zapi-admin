@@ -1,5 +1,5 @@
 import { ChangeEventHandler, CSSProperties, KeyboardEventHandler } from "react";
-import { AnalyticsType } from "../types";
+import { AnalyticsType, UserType } from "../types";
 
 export interface ButtonProps {
   label: string | JSX.Element;
@@ -34,4 +34,16 @@ export interface ApiResponse {
   message: string
   status: string
   success: boolean
+}
+
+export interface UserResponse {
+  data: UserData
+  message: string
+  status: string
+  success: boolean
+}
+
+interface UserData {
+  userCount: number
+  users: Array<UserType>
 }

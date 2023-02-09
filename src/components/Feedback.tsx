@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 
 import { useHttpRequest } from "../hooks";
 import { FeedbackType } from "../types";
+import { Spinner } from "../components";
 
 const Feedbacks = () => {
   const { error, loading, sendRequest } = useHttpRequest();
@@ -54,30 +55,34 @@ const Feedbacks = () => {
     <div className="w-full">
       <div className="font-bold text-xl text-primary">Total number of Feedbacks: </div>
       <div className="w-full text-center">
-        <Table>
-        <TableHead>
-            <TableRow>
-              <TableCell className="font-bold text-black">Name</TableCell>
-              <TableCell className="font-bold text-black">Email</TableCell>
-              <TableCell className="font-bold text-black">Title</TableCell>
-              <TableCell className="font-bold text-black">Body</TableCell>
-              <TableCell className="font-bold text-black">Added On</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {feedbacks?.
-              slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              ?.map((feedback, index: number) => (
-                <TableRow key={index}>
-                    <TableCell>{feedback?.name}</TableCell>
-                    <TableCell>{feedback?.email}</TableCell>
-                    <TableCell>{feedback?.title}</TableCell>
-                    <TableCell>{feedback?.body.substring(0, 20)}</TableCell>
-                    <TableCell>{feedback?.createdOn && new Date(feedback?.createdOn).toDateString()}</TableCell>
-                </TableRow>
-              ))}
-          </TableBody>
-        </Table>
+        {loading ? (
+          <div className="w-full h-[600px] grid place-items-center">
+            <Spinner size="large" thickness="thick" color="#081F4A" />
+          </div>
+        ):(
+          <Table className="my-4">
+            <TableHead>
+              <TableRow>
+                <TableCell className="font-bold text-black">Name</TableCell>
+                <TableCell className="font-bold text-black">Email</TableCell>
+                <TableCell className="font-bold text-black">Title</TableCell>
+                <TableCell className="font-bold text-black">Added On</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {feedbacks?.
+                slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                ?.map((feedback, index: number) => (
+                  <TableRow key={index}>
+                      <TableCell>{feedback?.name}</TableCell>
+                      <TableCell>{feedback?.email}</TableCell>
+                      <TableCell>{feedback?.title}</TableCell>
+                      <TableCell>{new Date(feedback?.createdOn).toLocaleDateString()}</TableCell>
+                  </TableRow>
+                ))}
+            </TableBody>
+          </Table>
+        )}
         {feedbacks && (
           <TablePagination
             className="font-extrabold text-lg"

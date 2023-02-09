@@ -36,7 +36,8 @@ const Analytics = () => {
     try {
       const data = await sendRequest("/api/api/admin-data", "get", "VITE_CORE_URL", undefined, headers)
       if(!data || data === undefined) return;
-      setApis(data.data);
+      // setApis(data.data);
+      console.log(data.data)
     } catch (error) {}
   }
 
@@ -53,9 +54,10 @@ const Analytics = () => {
     <div className="w-full">
       <div className="font-bold text-xl text-primary">Total number of APIs : {apis?.apiCount}</div>
       <div className="w-full text-center">
-        <Table>
+        <Table className="my-4">
           <TableHead>
             <TableRow>
+              <TableCell className="font-bold text-black">API Name</TableCell>
               <TableCell className="font-bold text-black">Subscriptions</TableCell>
               <TableCell className="font-bold text-black">Total Calls</TableCell>
               <TableCell className="font-bold text-black">Total Success</TableCell>
@@ -68,6 +70,7 @@ const Analytics = () => {
               slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               ?.map((api, index: number) => (
                 <TableRow key={index}>
+                    <TableCell>{api?.name || "API Name"}</TableCell>
                     <TableCell>{api?.subscriptionCount}</TableCell>
                     <TableCell>{api?.totalCalls}</TableCell>
                     <TableCell>{api?.successfulCalls}</TableCell>
