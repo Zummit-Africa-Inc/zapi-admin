@@ -1,6 +1,15 @@
 import { Routes, Route } from "react-router-dom";
 
-import { Api, Apis, Feedback, Home, Login, User, Users } from "./pages";
+import {
+  Api,
+  Apis,
+  ContactUs,
+  Feedback,
+  Home,
+  Login,
+  User,
+  Users,
+} from "./pages";
 import { Auth } from "./components";
 
 const Router = () => {
@@ -14,6 +23,7 @@ const Router = () => {
       <Route path="/feedback" element={<Feedback />} />
       <Route path="/user" element={<Users />} />
       <Route path="/user/:id" element={<User />} />
+      <Route path="/contact-us" element={<ContactUs />} />
       {/* </Route> */}
     </Routes>
   );

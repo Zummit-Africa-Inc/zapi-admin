@@ -8,7 +8,6 @@ const Home = lazy(() => import("./Home"));
 const Login = lazy(() => import("./Login"));
 const User = lazy(() => import("./User"));
 const Users = lazy(() => import("./Users"));
+const ContactUs = lazy(() => import("./ContactUs"));
 
-export {
-    Analytics, Api, Apis, Feedback, Home, Login, User, Users
-}
+export { Analytics, Api, Apis, Feedback, Home, Login, User, Users, ContactUs };
