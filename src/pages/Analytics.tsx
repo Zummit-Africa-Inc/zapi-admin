@@ -1,17 +1,17 @@
-import React from "react";
+import React from "react"
 
-import { AllFeedbacks, Navbar } from "../components";
+import { ApiAnalytics, Navbar } from "../components";
 import { Dashboard } from "../layouts";
 
-const Feedback = () => {
+const Analytics = () => {
   return (
     <div className="w-full flex flex-col">
       <Navbar />
       <Dashboard>
-        <AllFeedbacks />
+        <ApiAnalytics />
       </Dashboard>
     </div>
   )
 };
 
-export default Feedback;
+export default Analytics;

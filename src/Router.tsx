@@ -6,7 +6,7 @@ import { Auth } from "./components";
 const Router = () => {
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/" element={<Home />} />
       {/* <Route element={<Auth />}> */}
       <Route path="/dashboard" element={<Home />} />
       <Route path="/api" element={<Apis />} />

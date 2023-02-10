@@ -10,10 +10,10 @@ const Dashboard = ({children}:Props) => {
   return (
     <div className="w-full flex">
       <div className="w-0 md:w-[200px]">
-          <Sidebar />
+        <Sidebar />
       </div>
-      <div className="">
-          {children}
+      <div className="w-full mt-8 px-12">
+        {children}
       </div>
     </div>
   )

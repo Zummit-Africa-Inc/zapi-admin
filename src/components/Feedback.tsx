@@ -1,20 +1,22 @@
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TablePagination,
-  TableRow,
-} from "@mui/material";
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TablePagination,
+    TableRow,
+  } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { useHttpRequest } from "../hooks";
+import { FeedbackType } from "../types";
 import { Spinner } from "../components";
-import { UserType } from "../types";
 
-const Users = () => {
-  const [data, setData] = useState<Array<UserType>>([]);
-  const {error, loading, sendRequest } = useHttpRequest();
+const Feedbacks = () => {
+  const { error, loading, sendRequest } = useHttpRequest();
+  const [feedbacks, setFeedbacks] = useState<Array<FeedbackType>>([]);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [page, setPage] = useState(0);
 
@@ -29,27 +31,31 @@ const Users = () => {
     setPage(0);
   };
 
-  const getAllUsers = async() => {
+  const getAllApis = async() => {
     const headers = {
       "Content-Type": "application/json",
     }
     try {
-      const data = await sendRequest("/users/all-registered-users", "get", "VITE_IDENTITY_URL", undefined, headers);
+      const data = await sendRequest("/feedback", "get", "VITE_CORE_URL", undefined, headers)
       if(!data || data === undefined) return;
-      const { data: { users }} = data
-      setData(users);
+      setFeedbacks(data.data);
     } catch (error) {}
   }
 
   useEffect(() => {
-    getAllUsers()
-  }, []);
+    getAllApis()
+  },[]);
 
+  useEffect(() => {
+    error && toast.error(`${error}`);
+  },[error]);
+  
+  
   return (
     <div className="w-full">
-      <div className="font-bold text-xl text-primary">Total number of registered Users: {data?.length}</div>
+      <div className="font-bold text-xl text-primary">Total number of Feedbacks: </div>
       <div className="w-full text-center">
-      {loading ? (
+        {loading ? (
           <div className="w-full h-[600px] grid place-items-center">
             <Spinner size="large" thickness="thick" color="#081F4A" />
           </div>
@@ -57,34 +63,32 @@ const Users = () => {
           <Table className="my-4">
             <TableHead>
               <TableRow>
-                <TableCell className="font-bold text-black">Number</TableCell>
                 <TableCell className="font-bold text-black">Name</TableCell>
                 <TableCell className="font-bold text-black">Email</TableCell>
-                <TableCell className="font-bold text-black">Date Registered</TableCell>
+                <TableCell className="font-bold text-black">Title</TableCell>
+                <TableCell className="font-bold text-black">Added On</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {data
-                ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                ?.map((user: any, i: number) => (
-                  <TableRow key={i}>
-                    <TableCell>{i + 1}</TableCell>
-                    <TableCell className="capitalize">{user.fullName}</TableCell>
-                    <TableCell>{user.email}</TableCell>
-                    <TableCell>
-                      {new Date(user.createdOn).toLocaleDateString()}
-                    </TableCell>
+              {feedbacks?.
+                slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                ?.map((feedback, index: number) => (
+                  <TableRow key={index}>
+                      <TableCell>{feedback?.name}</TableCell>
+                      <TableCell>{feedback?.email}</TableCell>
+                      <TableCell>{feedback?.title}</TableCell>
+                      <TableCell>{new Date(feedback?.createdOn).toLocaleDateString()}</TableCell>
                   </TableRow>
                 ))}
             </TableBody>
           </Table>
         )}
-        {data && (
+        {feedbacks && (
           <TablePagination
             className="font-extrabold text-lg"
             rowsPerPageOptions={[5, 10, 20]}
             component="div"
-            count={data?.length}
+            count={feedbacks.length}
             rowsPerPage={rowsPerPage}
             page={page}
             onPageChange={handleChangePage}
@@ -96,4 +100,5 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default Feedbacks;
+  

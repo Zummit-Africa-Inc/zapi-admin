@@ -9,6 +9,7 @@ const InputField = ({
   type,
   defaultValue,
   icon,
+  className,
   onKeyDown,
   placeholder,
   required,
@@ -19,7 +20,7 @@ const InputField = ({
   return (
     <div className="flex flex-col">
       <label htmlFor={name} className="font-bold text-sm text-primary">{label}</label>
-      <div className="w-full w-max-[263px] h-[48px] flex items-center border border-gray-300 rounded focus-within:border-black" style={style}>
+      <div className="w-full w-max-[263px] h-[48px] flex items-center border border-gray-300 rounded focus-within:border-primary" style={style}>
         {icon}
         <input
           type={type}
@@ -30,7 +31,7 @@ const InputField = ({
           defaultValue={defaultValue}
           placeholder={placeholder}
           required={required}
-          className="w-full h-full outline-none border-none px-4 py-3"
+          className={`w-full h-full outline-none border-none px-4 py-3 rounded ${className}`}
         />
       </div>
     </div>

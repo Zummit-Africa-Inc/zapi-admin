@@ -22,7 +22,7 @@ const Login = () => {
       'Content-Type': "application/json",
     };
     const payload = {email, password};
-    const data = await sendRequest(`/`, "post", "VITE_IDENTITY_URL", JSON.stringify(payload), headers);
+    const data = await sendRequest(`/auth/signin`, "post", "VITE_IDENTITY_URL", JSON.stringify(payload), headers);
     if(!data || data === undefined) return;
     console.log(data);
   };
@@ -33,7 +33,7 @@ const Login = () => {
 
   return (
     <div className="w-screen h-screen flex flex-col-reverse md:flex-row items-center">
-      <div className="w-full md:w-[40%] h-full bg-white p-4 flex flex-col py-8 px-20">
+      <div className="w-full md:w-[40%] h-full bg-white p-4 flex flex-col py-8 px-10 md:px-20">
         <div className="flex items-center gap-2 mb-8">
           <img src={zapi} alt="" className="w-[30px]" />
           <p className="font-extrabold text-2xl text-primary">ZAPI Admin</p>
@@ -48,8 +48,8 @@ const Login = () => {
           <Button label={loading ? <Spinner size="small" thickness="thin" color="#FFF" /> : "Login"} type="submit" />
         </form>
       </div>
-      <div className="w-full md:w-[60%] h-full bg-primary py-8 px-20 flex flex-col">
-        <p className="font-extrabold text-6xl text-white leading-6 capitalize">zapi admin</p>
+      <div className="w-full md:w-[60%] h-[200px] md:h-full bg-primary py-8 px-10 md:px-20 flex flex-col">
+        <p className="font-extrabold text-4xl text-white capitalize">zapi admin</p>
       </div>
     </div>
   )

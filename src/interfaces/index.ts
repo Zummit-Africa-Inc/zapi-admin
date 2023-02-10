@@ -1,4 +1,5 @@
 import { ChangeEventHandler, CSSProperties, KeyboardEventHandler } from "react";
+import { AnalyticsType, UserType } from "../types";
 
 export interface ButtonProps {
   label: string | JSX.Element;
@@ -19,9 +20,30 @@ export interface InputProps {
   >;
   onKeyDown?: KeyboardEventHandler<HTMLInputElement | HTMLTextAreaElement>;
   value?: string;
+  className?: string
   defaultValue?: string;
   placeholder?: string;
   required?: boolean;
   icon?: JSX.Element;
   style?: CSSProperties;
+}
+
+export interface ApiResponse {
+  apiCount: number
+  apis: Array<AnalyticsType>
+  message: string
+  status: string
+  success: boolean
+}
+
+export interface UserResponse {
+  data: UserData
+  message: string
+  status: string
+  success: boolean
+}
+
+interface UserData {
+  userCount: number
+  users: Array<UserType>
 }

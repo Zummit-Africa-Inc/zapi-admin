@@ -12,4 +12,8 @@ export const SIDEBAR = [
         name: "Feedback",
         url: "/feedback",
     },
+    // {
+    //     name: "Analytics",
+    //     url: "/analytics",
+    // },
 ]
