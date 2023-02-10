@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 import {
+  Analytics,
   Api,
   Apis,
   ContactUs,
@@ -24,6 +25,7 @@ const Router = () => {
       <Route path="/user" element={<Users />} />
       <Route path="/user/:id" element={<User />} />
       <Route path="/contact-us" element={<ContactUs />} />
+      <Route path="/analytics" element={<Analytics />} />
       {/* </Route> */}
     </Routes>
   );

@@ -42,7 +42,6 @@ const Analytics = () => {
         headers
       );
       if (!data || data === undefined) return;
-      // setApis(data.data);
       setApis(data.data);
     } catch (error) {}
   };
@@ -75,7 +74,7 @@ const Analytics = () => {
                 Total Success
               </TableCell>
               <TableCell className="font-bold text-black">
-                Ttoal Errors
+                Total Errors
               </TableCell>
               <TableCell className="font-bold text-black">
                 Total Latency

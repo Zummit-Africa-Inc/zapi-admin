@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 import { ApiAnalytics, Navbar } from "../components";
 import { Dashboard } from "../layouts";
@@ -11,7 +11,7 @@ const Analytics = () => {
         <ApiAnalytics />
       </Dashboard>
     </div>
-  )
+  );
 };
 
 export default Analytics;
