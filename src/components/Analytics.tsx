@@ -1,11 +1,11 @@
 import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TablePagination,
-    TableRow,
-  } from "@mui/material";
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TablePagination,
+  TableRow,
+} from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
@@ -29,53 +29,69 @@ const Analytics = () => {
     setPage(0);
   };
 
-  const getAllApis = async() => {
+  const getAllApis = async () => {
     const headers = {
       "Content-Type": "application/json",
-    }
+    };
     try {
-      const data = await sendRequest("/api/api/admin-data", "get", "VITE_CORE_URL", undefined, headers)
-      if(!data || data === undefined) return;
-      // setApis(data.data);
-      console.log(data.data)
+      const data = await sendRequest(
+        "/api/api/admin-data",
+        "get",
+        "VITE_CORE_URL",
+        undefined,
+        headers
+      );
+      if (!data || data === undefined) return;
+      setApis(data.data);
     } catch (error) {}
-  }
+  };
 
   useEffect(() => {
-    getAllApis()
-  },[]);
+    getAllApis();
+  }, []);
 
   useEffect(() => {
     error && toast.error(`${error}`);
-  },[error]);
-  
-  
+  }, [error]);
+
   return (
     <div className="w-full">
-      <div className="font-bold text-xl text-primary">Total number of APIs : {apis?.apiCount}</div>
+      <div className="font-bold text-xl text-primary">
+        Total number of APIs : {apis?.apiCount}
+      </div>
       <div className="w-full text-center">
         <Table className="my-4">
           <TableHead>
             <TableRow>
               <TableCell className="font-bold text-black">API Name</TableCell>
-              <TableCell className="font-bold text-black">Subscriptions</TableCell>
-              <TableCell className="font-bold text-black">Total Calls</TableCell>
-              <TableCell className="font-bold text-black">Total Success</TableCell>
-              <TableCell className="font-bold text-black">Ttoal Errors</TableCell>
-              <TableCell className="font-bold text-black">Total Latency</TableCell>
+              <TableCell className="font-bold text-black">
+                Subscriptions
+              </TableCell>
+              <TableCell className="font-bold text-black">
+                Total Calls
+              </TableCell>
+              <TableCell className="font-bold text-black">
+                Total Success
+              </TableCell>
+              <TableCell className="font-bold text-black">
+                Total Errors
+              </TableCell>
+              <TableCell className="font-bold text-black">
+                Total Latency
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {apis?.apis?.
-              slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            {apis?.apis
+              ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               ?.map((api, index: number) => (
                 <TableRow key={index}>
-                    <TableCell>{api?.name || "API Name"}</TableCell>
-                    <TableCell>{api?.subscriptionCount}</TableCell>
-                    <TableCell>{api?.totalCalls}</TableCell>
-                    <TableCell>{api?.successfulCalls}</TableCell>
-                    <TableCell>{api?.totalErrors}</TableCell>
-                    <TableCell>{api?.totalLatency}</TableCell>
+                  <TableCell>{api?.name || "API Name"}</TableCell>
+                  <TableCell>{api?.subscriptionCount}</TableCell>
+                  <TableCell>{api?.totalCalls}</TableCell>
+                  <TableCell>{api?.successfulCalls}</TableCell>
+                  <TableCell>{api?.totalErrors}</TableCell>
+                  <TableCell>{api?.totalLatency}</TableCell>
                 </TableRow>
               ))}
           </TableBody>
@@ -97,4 +113,3 @@ const Analytics = () => {
 };
 
 export default Analytics;
-  

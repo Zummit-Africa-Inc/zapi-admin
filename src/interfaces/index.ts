@@ -12,7 +12,7 @@ export interface ButtonProps {
 }
 
 export interface InputProps {
-  label: JSX.Element | string
+  label: JSX.Element | string;
   type: string;
   name: string;
   onChange?: ChangeEventHandler<
@@ -20,7 +20,7 @@ export interface InputProps {
   >;
   onKeyDown?: KeyboardEventHandler<HTMLInputElement | HTMLTextAreaElement>;
   value?: string;
-  className?: string
+  className?: string;
   defaultValue?: string;
   placeholder?: string;
   required?: boolean;
@@ -29,21 +29,32 @@ export interface InputProps {
 }
 
 export interface ApiResponse {
-  apiCount: number
-  apis: Array<AnalyticsType>
-  message: string
-  status: string
-  success: boolean
+  apiCount: number;
+  apis: Array<AnalyticsType>;
+  message: string;
+  status: string;
+  success: boolean;
 }
 
 export interface UserResponse {
-  data: UserData
-  message: string
-  status: string
-  success: boolean
+  data: UserData;
+  message: string;
+  status: string;
+  success: boolean;
 }
 
 interface UserData {
-  userCount: number
-  users: Array<UserType>
+  userCount: number;
+  users: Array<UserType>;
+}
+
+export interface ContactResponse {
+  firstname: string;
+  lastname: string;
+  email: string;
+  org_name: string;
+  phone_call: string;
+  message: string;
+  goal: string;
+  createdOn: string;
 }
