@@ -49,6 +49,7 @@ interface UserData {
 }
 
 export interface ContactResponse {
+  id: string;
   firstname: string;
   lastname: string;
   email: string;
