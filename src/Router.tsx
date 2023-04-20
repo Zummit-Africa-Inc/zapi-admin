@@ -8,6 +8,7 @@ import {
   Feedback,
   Home,
   Login,
+  Support,
   User,
   Users,
 } from "./pages";
@@ -26,6 +27,7 @@ const Router = () => {
       <Route path="/user/:id" element={<User />} />
       <Route path="/contact-us" element={<ContactUs />} />
       <Route path="/analytics" element={<Analytics />} />
+      <Route path="/support" element={<Support />} />
       {/* </Route> */}
     </Routes>
   );

@@ -59,3 +59,12 @@ export interface ContactResponse {
   goal: string;
   createdOn: string;
 }
+
+export interface SupportZum {
+  id: string;
+  fullName: string;
+  email: string;
+  companyName: string;
+  message: string;
+  createdOn: string;
+}
