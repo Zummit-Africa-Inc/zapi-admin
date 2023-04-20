@@ -13,6 +13,7 @@ import { StyledEngineProvider } from "@mui/material";
 
 const vite_identity_url = import.meta.env.VITE_IDENTITY_URL;
 const vite_core_url = import.meta.env.VITE_CORE_URL;
+const vite_web_url = import.meta.env.VITE_WEB_URL;
 const cookies = new Cookies();
 
 Amplify.configure({
@@ -30,6 +31,10 @@ Amplify.configure({
             "X-Zapi-Auth-Token": `Bearer ${cookies.get("admin-token")}`,
           };
         },
+      },
+      {
+        name: "VITE_WEB_URL",
+        endpoint: vite_web_url,
       },
     ],
   },

@@ -19,4 +19,8 @@ export const SIDEBAR = [
     name: "Analytics",
     url: "/analytics",
   },
+  {
+    name: "Support",
+    url: "/support",
+  },
 ];
